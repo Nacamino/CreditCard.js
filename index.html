@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarjeta</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300&family=Liu+Jian+Mao+Cao&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main_container">
+      <!------------------tarjeta------------------>
+      <section class="card" id="card">
+        <div class="front_card">
+          <div class="logo" id="logo">
+            <!-- <img src="/img/visa.png" alt="" /> -->
+          </div>
+          <img src="/img/chip-tarjeta.png" class="chip" alt="" />
+          <div class="data">
+            <div class="group" id="number">
+              <p class="label">Numero de tarjeta</p>
+              <p class="number-card" id="number_card">#### #### #### ####</p>
+            </div>
+            <div class="flexbox">
+              <div class="group" id="name">
+                <p class="label">nombre tarjeta</p>
+                <p class="name_card" id="name_card">jhin doe</p>
+              </div>
+              <div class="group" id="date">
+                <p class="label">fecha de expiracion</p>
+                <p class="date_card">
+                  <span class="month" id="month_date">MM</span>/<span
+                    class="year"
+                    id="year_date"
+                    >AA</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="back_card">
+          <div class="magnetic"></div>
+          <div class="data">
+            <div class="group2" id="firm">
+              <p class="label">Firma</p>
+              <div class="firm">
+                <p id="firmas"></p>
+              </div>
+            </div>
+            <div class="group2" id="ccv">
+              <p class="label">CCV</p>
+              <p id="ccv_content" class="ccv_content"></p>
+            </div>
+          </div>
+          <p class="legend">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+            perspiciatis eaque, mollitia
+          </p>
+          <a href="#" class="link_banco">Banco.com</a>
+        </div>
+      </section>
+      <!------------------Boton del formulario------------------>
+      <div class="content_btn">
+        <button class="btn_open" id="btn_open">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+
+      <div class="form_container">
+        <form action="" id="form_card" class="form_card">
+          <div class="group3">
+            <label for="input_number"> Numero de Tarjeta</label>
+            <input
+              type="text"
+              name=""
+              id="input_number"
+              maxlength="19"
+              autocomplete="off"
+            />
+          </div>
+          <div class="group3">
+            <label for="input_name">Nombre</label>
+            <input type="text" name="" id="input_name" autocomplete="off" />
+          </div>
+          <div class="flexbox">
+            <div class="group3 expire">
+              <label for="month">Expiracion</label>
+              <div class="flexbox date">
+                <select name="mes" id="select_month">
+                  <option disabled selected>Mes</option>
+                </select>
+                <i class="fas fa-angle-down"></i>
+                <select name="year" id="select_year">
+                  <option disabled selected>Año</option>
+                </select>
+                <i class="fas fa-angle-down"></i>
+              </div>
+            </div>
+            <div class="group3 input_ccv">
+              <label for="ccv">CCV</label>
+              <input
+                type="text"
+                name=""
+                id="input_ccv"
+                class="input_ccv"
+                maxlength="3"
+              />
+            </div>
+          </div>
+          <button type="submit" class="btn_send">Enviar</button>
+        </form>
+      </div>
+    </div>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

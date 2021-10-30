@@ -1,0 +1,249 @@
+@import "config";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+  background-color: rosybrown;
+}
+.main_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  align-items: center;
+  .card {
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    color: white;
+    transition: 0.3s ease all;
+    transform-style: preserve-3d;
+
+    cursor: pointer;
+    z-index: 100;
+    transform: rotateY(0deg);
+    &.active {
+      transform: rotateY(180deg);
+    }
+    // Tarjeta delantera
+    .front_card {
+      width: 100%;
+      @extend %front-back;
+      background: url(../img/bg-tarjeta-03.jpg);
+      background-size: cover;
+      .group {
+        .label {
+          font-size: 16px;
+          color: #7d8994;
+          margin-bottom: 5px;
+        }
+        .number_card {
+          @extend %number-name-date;
+        }
+      }
+      .flexbox {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        .name_card {
+          @extend %number-name-date;
+        }
+        .date_card {
+          @extend %number-name-date;
+        }
+      }
+      .logo {
+        text-align: right;
+        min-height: 50px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          max-width: 80px;
+        }
+      }
+      .chip {
+        width: 100%;
+        max-width: 45px;
+        margin-bottom: 15px;
+      }
+    }
+    // tarjeta trasera
+    .back_card {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      transform: rotateY(180deg);
+
+      background: url(../img/bg-tarjeta-03.jpg);
+      background-size: cover;
+      &.active {
+        transform: rotateY(180deg);
+      }
+      .magnetic {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        background-color: rgb(0, 0, 0);
+      }
+      .legend {
+        font-size: 0.7em;
+        line-height: 24px;
+      }
+      .link_banco {
+        color: white;
+      }
+      .data {
+        display: flex;
+        justify-content: space-between;
+        margin: 60px 0;
+        #ccv {
+          width: 20%;
+          .ccv_content {
+            background-color: white;
+            height: 40px;
+            color: black;
+            text-align: center;
+            padding: 10px;
+          }
+        }
+        #firm {
+          width: 70%;
+
+          .firm {
+            height: 40px;
+            background: repeating-linear-gradient(
+              rgb(195, 238, 255) 0,
+              rgb(195, 238, 255) 5px,
+              rgb(230, 230, 230) 5px,
+              rgb(230, 230, 230) 10px
+            );
+            p {
+              line-height: 40px;
+              font-family: "Liu Jian Mao Cao";
+              color: black;
+              font-size: 2em;
+              text-transform: capitalize;
+            }
+          }
+        }
+        p {
+          margin-bottom: 5px;
+        }
+      }
+      @extend %front-back;
+    }
+  }
+  // Btn-contenido
+  .content_btn {
+    .btn_open {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5em;
+      line-height: 20px;
+      background-color: #2364d2;
+      position: relative;
+      top: -20px;
+      z-index: 100;
+      outline: none;
+      border: none;
+      box-shadow: 5px 3px 10px rgba(24, 56, 182, 0.4);
+      cursor: pointer;
+      padding: 5px;
+      transition: all 0.2 ease;
+      color: white;
+      &:hover {
+        background-color: #184faf;
+      }
+      &.press {
+        transform: rotate(45deg);
+      }
+    }
+  }
+  //formulario
+  .form_container {
+    width: 100%;
+    max-width: 700px;
+    .form_card {
+      background-color: white;
+      width: 100%;
+      max-width: 700px;
+      padding: 150px 30px 30px 30px;
+      position: relative;
+      top: -150px;
+      z-index: 99;
+      border-radius: 15px;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      &.open {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+
+      label {
+        display: block;
+        color: #7d8994;
+        margin-bottom: 5px;
+        font-size: 1em;
+      }
+      input {
+        @extend %ISB;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        &:hover {
+          border: 2px solid #93bded;
+        }
+        &:focus {
+          box-shadow: 4px 7px 8px -2px rgba(98, 116, 148, 0.3);
+        }
+      }
+    }
+    select {
+      @extend %ISB;
+      &:hover {
+        border: 2px solid #93bded;
+      }
+    }
+    .flexbox {
+      display: flex;
+      justify-content: space-between;
+    }
+    .expire {
+      width: 100%;
+    }
+    .ccv {
+      width: 25%;
+    }
+    .expire {
+      i {
+        position: relative;
+        color: #ced6e0;
+        right: 20px;
+        top: 8px;
+        pointer-events: none;
+      }
+    }
+    select {
+      -webkit-appearance: none;
+    }
+  }
+
+  .btn_send {
+    border: none;
+    @extend %ISB;
+    color: white;
+    padding: 15px;
+    font-size: 1.5em;
+    background-color: #2364d2;
+    cursor: pointer;
+    &:hover {
+      background-color: #1850b1;
+    }
+  }
+}
